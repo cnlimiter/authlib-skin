@@ -1,6 +1,8 @@
 name: Go
 
 on:
+  # Allow mannual trigger
+  workflow_dispatch:
   push:
     branches: [master]
   pull_request:
