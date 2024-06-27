@@ -45,10 +45,9 @@ jobs:
         run : |
           sha256sum ./dist/*
           sha256sum ./dist/* > ./dist/sha256
-      - name: Publish GitHub Releases
-        uses: softprops/action-gh-release@v1
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3
         with:
-          name: "authlibskin ${{ github.ref_name }}"
-          files: |
-            ./dist/*
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./dist/*
+          name: ${{ github.run_number }}    
